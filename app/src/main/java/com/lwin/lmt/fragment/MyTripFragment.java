@@ -37,8 +37,7 @@ public class MyTripFragment extends ListFragment {
     @Bind(R.id.pImage)
     ImageView profileImage;
 
-
-    // newInstance constructor for creating fragment with arguments
+  // newInstance constructor for creating fragment with arguments
     public static MyTripFragment newInstance(int image,int page,String title,String[] hotel) {
         MyTripFragment myTripFragment = new MyTripFragment();
         Bundle args = new Bundle();
@@ -58,6 +57,12 @@ public class MyTripFragment extends ListFragment {
         page = getArguments().getInt(TAG_PAGE);
         title = getArguments().getString(TAG_TITLE);
         hotel=getArguments().getStringArray(TAG_HOTEL);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_list_item_1, hotel);
+        setListAdapter(adapter);
+
+
     }
 
     @Override
@@ -65,13 +70,9 @@ public class MyTripFragment extends ListFragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mytrip, container, false);
         ButterKnife.bind(this, view);
-
         profileImage.setImageResource(getArguments().getInt(TAG_IMAGE));
         txtlbl.setText(title);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_list_item_1, hotel);
-        setListAdapter(adapter);
 
         return view;
     }

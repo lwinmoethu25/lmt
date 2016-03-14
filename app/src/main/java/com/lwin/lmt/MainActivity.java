@@ -37,14 +37,15 @@ public class MainActivity extends AppCompatActivity {
         adapterViewPager = new MyPagerAdapter(getSupportFragmentManager());
         vPager.setClipToPadding(false);
         vPager.setPageMargin(15);
-        vPager.setPadding(35, 5, 35, 5);
+       // vPager.setPadding(35, 10, 35, 10);
         vPager.setAdapter(adapterViewPager);
         Toast.makeText(this,"Trip "+String.valueOf(vPager.getCurrentItem()+1),Toast.LENGTH_SHORT).show();
         vPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
             @Override
             public void onPageSelected(int position) {
-                Toast.makeText(getApplicationContext(), "Trip " + (position + 1), Toast.LENGTH_SHORT).show();
+
+                //Toast.makeText(getApplicationContext(), "Trip " + (position + 1), Toast.LENGTH_SHORT).show();
 
             }
 
@@ -79,25 +80,25 @@ public class MainActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return MyTripFragment.newInstance(R.mipmap.wp1, 1, "Trip 1",trip1);
+                     return MyTripFragment.newInstance(R.mipmap.wp1,1, "Trip 1",trip1);
                 case 1:
-                    return MyTripFragment.newInstance(R.mipmap.wp2, 2, "Trip 2",trip);
+                    return MyTripFragment.newInstance(R.mipmap.wp1, 2, "Trip 2",trip);
                 case 2:
-                    return MyTripFragment.newInstance(R.mipmap.wp3, 3, "Trip 3",trip1);
+                    return MyTripFragment.newInstance(R.mipmap.wp1,3, "Trip 3",trip1);
                 case 3:
-                    return MyTripFragment.newInstance(R.mipmap.wp4, 4, "Trip 4",trip);
+                    return MyTripFragment.newInstance(R.mipmap.wp1, 4, "Trip 4",trip);
                 case 4:
-                    return MyTripFragment.newInstance(R.mipmap.wp5, 5, "Trip 5",trip1);
+                    return MyTripFragment.newInstance(R.mipmap.wp1,5, "Trip 5",trip1);
                 case 5:
-                    return MyTripFragment.newInstance(R.mipmap.wp6, 6, "Trip 6",trip);
+                    return MyTripFragment.newInstance( R.mipmap.wp1,6, "Trip 6",trip);
                 case 6:
-                    return MyTripFragment.newInstance(R.mipmap.wp7, 7, "Trip 7",trip1);
+                    return MyTripFragment.newInstance( R.mipmap.wp1,7, "Trip 7",trip1);
                 case 7:
-                    return MyTripFragment.newInstance(R.mipmap.wp8, 8, "Trip 8",trip);
+                    return MyTripFragment.newInstance( R.mipmap.wp1,8, "Trip 8",trip);
                 case 8:
-                    return MyTripFragment.newInstance(R.mipmap.wp9, 9, "Trip 9",trip1);
+                    return MyTripFragment.newInstance( R.mipmap.wp1,9, "Trip 9",trip1);
                 case 9:
-                    return MyTripFragment.newInstance(R.mipmap.wp10, 10, "Trip 10",trip);
+                    return MyTripFragment.newInstance( R.mipmap.wp1, 10, "Trip 10",trip);
 
                 default:
                     return null;
